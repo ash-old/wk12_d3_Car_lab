@@ -28,8 +28,7 @@ public class CustomerTest {
 
     @Test
     public void canBuyVehicle(){
-        customer.payForVehicle(vehicle);
-        customer.addNewVehicle(vehicle);
+        customer.buyVehicle(vehicle);
         assertEquals(10000, customer.getMoney());
         assertEquals(1, customer.noOfOwnedVehicles());
     }

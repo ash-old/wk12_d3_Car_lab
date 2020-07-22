@@ -28,12 +28,11 @@ public class Customer {
         return ownedVehicles.size();
     }
 
-    public void payForVehicle(Vehicle vehicle) {
+    public void buyVehicle(Vehicle vehicle) {
         int price = vehicle.getPrice();
         this.money -= price;
+        this.ownedVehicles.add(vehicle);
+
     }
 
-    public void addNewVehicle(Vehicle vehicle) {
-        this.ownedVehicles.add(vehicle);
-    }
 }

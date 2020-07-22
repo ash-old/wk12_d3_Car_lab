@@ -7,29 +7,36 @@ import java.util.ArrayList;
 public class Dealership {
 
     private String name;
-    private ArrayList<Vehicle> carStock;
+    private ArrayList<Vehicle> vehicleStock;
     private int till;
 
     public Dealership(String name, int till) {
         this.name = name;
         this.till = till;
-        carStock = new ArrayList<Vehicle>();
+        vehicleStock = new ArrayList<Vehicle>();
     }
 
     public String getName() {
         return name;
     }
 
-    public ArrayList<Vehicle> getCarStock() {
-        return carStock;
+    public int noOfCarStock() {
+        return vehicleStock.size();
     }
 
     public int getTill() {
         return till;
     }
 
-    public void setCarStock(ArrayList<Vehicle> carStock) {
-        this.carStock = carStock;
+    public void addToVehicleStock(Vehicle vehicle) {
+        this.till -= vehicle.getPrice();
+        this.vehicleStock.add(vehicle);
+    }
+
+    public void sellVehicleToCustomer(Customer customer, Vehicle vehicle){
+        customer.buyVehicle(vehicle);
+        this.till += vehicle.getPrice();
+        this.vehicleStock.remove(vehicle);
     }
 
     public void setTill(int till) {
